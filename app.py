@@ -18,11 +18,11 @@ df, tfidf = load_data()
 # =====================
 # Compute cosine similarity
 # =====================
-@st.cache_data
-def compute_cosine_sim(df, _tfidf):
-    tfidf_matrix = _tfidf.transform(df['overview'])
+def compute_cosine_sim(df, tfidf):
+    tfidf_matrix = tfidf.transform(df['overview'])
     cosine_sim = cosine_similarity(tfidf_matrix, tfidf_matrix)
     return cosine_sim
+
 
 cosine_sim = compute_cosine_sim(df, tfidf)
 
